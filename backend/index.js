@@ -9,7 +9,10 @@ const urlRoutes = require("./routes/url");
 const {redirectUrl} = require("./controllers/urlController")
 const port = process.env.PORT;
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
+
 
 app.use("/api/url",urlRoutes);
 app.get("/:shortId", redirectUrl);
